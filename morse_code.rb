@@ -38,16 +38,27 @@ ALPHABET = {
 }.freeze
 
 def decode_char(char)
-  return ALPHABET[char]
+  ALPHABET[char]
 end
 
 def decode_word(str)
-   results = ''
-   arr = str.split
-   arr.each do |i|
-   results = results + decode_char(i)
-   end
-   puts results
+  results = ''
+  arr = str.split
+  arr.each do |i|
+    results += decode_char(i)
+  end
+  results
 end
 
-decode_word("-- -.--")
+def decode(code)
+  results = ''
+  brr = code.split('   ')
+  brr.each do |n|
+    results = "#{results} #{decode_word(n)}"
+  end
+  puts results
+end
+
+decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
+
+# => A BOX FULL OF RUBIES
