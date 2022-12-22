@@ -38,7 +38,16 @@ ALPHABET = {
 }.freeze
 
 def decode_char(char)
-  puts ALPHABET[char]
+  return ALPHABET[char]
 end
 
-decode_char('-----')
+def decode_word(str)
+   results = ''
+   arr = str.split
+   arr.each do |i|
+   results = results + decode_char(i)
+   end
+   puts results
+end
+
+decode_word("-- -.--")
